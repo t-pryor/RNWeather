@@ -16,11 +16,13 @@ class AppContainer extends Component {
 
     render() {
         return (
-            <TabBarIOS style={styles.container}>
+            <TabBarIOS
+                barTintColor='#F5FCFF'
+            >
                 <TabBarIOS.Item
                     title="West"
                     selected={this.state.selectedTab == 'west'}
-                    icon={require('./img/west-icon.png')}
+                    icon={require('./img/west-icon-smaller.png')}
                     onPress={()=> this.setState({selectedTab: 'west'})}
                 >
                     <LocationListView />
@@ -29,7 +31,7 @@ class AppContainer extends Component {
             <TabBarIOS.Item
                 title="East"
                 selected={this.state.selectedTab == 'east'}
-                icon={require('./img/east-icon.png')}
+                icon={require('./img/east-icon-smaller.png')}
                 onPress={()=> this.setState({selectedTab: 'east'})}
             >
                 <LocationListView />
