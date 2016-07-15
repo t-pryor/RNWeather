@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 var LocationListView = require ('./LocationListView')
+var AppContainer = require('./AppContainer')
 
 class RNWeather extends Component {
   render() {
@@ -21,7 +22,7 @@ class RNWeather extends Component {
             flex: 1,
             backgroundColor: '#81B0A0'
         }}>
-            <LocationListView />
+            <AppContainer />
         </View>
 
     );

@@ -18,6 +18,13 @@ class LocationListView extends Component {
 
     pressRow(rowData) {
         console.log(rowData);
+
+        // let newArray = ['Vancouver', 'Calgary', 'Edmonton', 'Victoria', 'Saskatoon'];
+        //
+        // let newDataSource = this.ds.cloneWithRows(newArray);
+        // this.setState({
+        //  dataSource: newDataSource
+        // });
     }
 
 
