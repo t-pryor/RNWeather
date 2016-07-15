@@ -10,9 +10,7 @@ class LocationListView extends Component {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== rs});
         this.state = {
-            dataSource: ds.cloneWithRows([
-                'Montreal', 'Oakville', 'Toronto', 'Quebec City', 'Ottawa'
-            ])
+            dataSource: ds.cloneWithRows(props.data)
         }
     }
 

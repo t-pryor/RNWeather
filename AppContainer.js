@@ -4,10 +4,17 @@ import React, {Component} from 'react';
 import { Text, View, StyleSheet, TabBarIOS } from "react-native";
 
 var LocationListView = require ('./LocationListView')
+// var westLocations = [ 'Victoria', 'Vancouver', 'Calgary', 'Edmonton', 'Saskatoon']
+// var eastLocations = [ ]
 
 class AppContainer extends Component {
+
+
     constructor(props) {
         super(props);
+
+        this.westLocations = [ 'Victoria', 'Vancouver', 'Calgary', 'Edmonton', 'Saskatoon'];
+        this.eastLocations = ['Toronto', 'Ottawa', 'Montreal', 'Quebec City', "St. John's"];
 
         this.state = {
             selectedTab: 'west'
@@ -25,7 +32,7 @@ class AppContainer extends Component {
                     icon={require('./img/west-icon-smaller.png')}
                     onPress={()=> this.setState({selectedTab: 'west'})}
                 >
-                    <LocationListView />
+                    <LocationListView data = {this.westLocations}/>
                 </TabBarIOS.Item>
 
             <TabBarIOS.Item
@@ -34,7 +41,7 @@ class AppContainer extends Component {
                 icon={require('./img/east-icon-smaller.png')}
                 onPress={()=> this.setState({selectedTab: 'east'})}
             >
-                <LocationListView />
+                <LocationListView data = {this.eastLocations}/>
             </TabBarIOS.Item>
         </TabBarIOS>
         )
