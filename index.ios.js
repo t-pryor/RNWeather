@@ -17,7 +17,13 @@ var LocationListView = require ('./LocationListView')
 class RNWeather extends Component {
   render() {
     return (
-        <LocationListView />
+        <View style={{
+            flex: 1,
+            backgroundColor: '#81B0A0'
+        }}>
+            <LocationListView />
+        </View>
+
     );
   }
 }

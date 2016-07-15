@@ -16,38 +16,46 @@ class LocationListView extends Component {
         }
     }
 
+    pressRow(rowData) {
+        console.log(rowData);
+    }
+
+
+    // does renderSeperator makes sense?
     renderRow(rowData) {
         return (
+            <TouchableHighlight
+                onPress={()=> this.pressRow(rowData)}
+                underlayColor='#ddd'
+            >
             <View style={{
                 flex: 1,
                 flexDirection: 'row',
                 padding: 20,
                 alignItems: 'center',
-                borderColor: '#D7D7D7',
+                backgroundColor: '#81B0A0',
+                borderColor: '#D04734',
                 borderBottomWidth: 1
             }}>
             <Text style={{fontSize: 45}}> {rowData} </Text>
             </View>
+            </TouchableHighlight>
         );
     }
 
-    renderSeperator(sectionID, rowID) {
-        return (
-            <View style={{backgroundColor:'#CCCCCC'}} />
-        )
-    }
 
+    // ListView requires two props: dataSource and renderRow
     render() {
         return (
             <View style={{paddingTop: 22}}>
                 <ListView
                     dataSource={this.state.dataSource}
-                    renderRow={this.renderRow}
-                    renderSeperator={this.renderSeparator}
+                    renderRow={this.renderRow.bind(this)}
                 />
             </View>
         )
     }
+
 }
 
 module.exports = LocationListView;
