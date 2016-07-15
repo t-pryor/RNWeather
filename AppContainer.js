@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import { Text, View, StyleSheet, TabBarIOS } from "react-native";
 
+var LocationListView = require ('./LocationListView')
+
 class AppContainer extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,7 @@ class AppContainer extends Component {
                     icon={require('./img/west-icon.png')}
                     onPress={()=> this.setState({selectedTab: 'west'})}
                 >
-                    <Text style={styles.welcome}>West Tab</Text>
+                    <LocationListView />
                 </TabBarIOS.Item>
 
             <TabBarIOS.Item
@@ -30,7 +32,7 @@ class AppContainer extends Component {
                 icon={require('./img/east-icon.png')}
                 onPress={()=> this.setState({selectedTab: 'east'})}
             >
-                <Text style={styles.welcome}>East Tab</Text>
+                <LocationListView />
             </TabBarIOS.Item>
         </TabBarIOS>
         )
