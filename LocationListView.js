@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import { AppRegistry, ListView, Text, View, TouchableHighlight } from "react-native";
+import { AppRegistry, ListView, Text, View, TouchableHighlight, StyleSheet, Image } from "react-native";
 
 
 class LocationListView extends Component {
@@ -28,24 +28,42 @@ class LocationListView extends Component {
 
     // does renderSeperator makes sense?
     renderRow(rowData) {
+        var photoString = require('./img/Victoria.png')
+        console.log(photoString);
+        console.log(typeof photoString);
+
+        switch (rowData) {
+            case 'Victoria':
+                var photoString = require('./img/Victoria.png');
+                break;
+            case 'Vancouver':
+                var photoString = require('./img/east-icon-smaller.png')
+                break;
+            default:
+                var photoString = require('./img/Victoria.png');
+                break;
+        }
+
         return (
             <TouchableHighlight
                 onPress={()=> this.pressRow(rowData)}
                 underlayColor='#ddd'
             >
-            <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                padding: 20,
-                alignItems: 'center',
-                backgroundColor: '#81B0A0',
-                borderColor: '#D04734',
-                borderBottomWidth: 1
-            }}>
+            <View style={styles.row}>
             <Text style={{fontSize: 45}}> {rowData} </Text>
+            <Image
+                source={photoString}
+                style={{
+                    height: 50,
+                    width: 100,
+                    borderRadius: 10
+                }}
+            />
             </View>
             </TouchableHighlight>
         );
+
+
     }
 
 
@@ -62,5 +80,32 @@ class LocationListView extends Component {
     }
 
 }
+
+const styles = StyleSheet.create({
+  row: {
+      flex: 1,
+      flexDirection: 'row',
+      padding: 20,
+      alignItems: 'center',
+      backgroundColor: '#81B0A0',
+      borderColor: '#D04734',
+      borderBottomWidth: 1
+  },
+  image: {
+      fontSize: 45,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+
 
 module.exports = LocationListView;

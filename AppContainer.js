@@ -1,14 +1,13 @@
 'use strict'
 
 import React, {Component} from 'react';
-import { Text, View, StyleSheet, TabBarIOS } from "react-native";
+import { Text, View, StyleSheet, TabBarIOS, NavigatorIOS } from "react-native";
 
 var LocationListView = require ('./LocationListView')
 // var westLocations = [ 'Victoria', 'Vancouver', 'Calgary', 'Edmonton', 'Saskatoon']
 // var eastLocations = [ ]
 
 class AppContainer extends Component {
-
 
     constructor(props) {
         super(props);
@@ -32,6 +31,7 @@ class AppContainer extends Component {
                     icon={require('./img/west-icon-smaller.png')}
                     onPress={()=> this.setState({selectedTab: 'west'})}
                 >
+
                     <LocationListView data = {this.westLocations}/>
                 </TabBarIOS.Item>
 
