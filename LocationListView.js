@@ -17,12 +17,8 @@ class LocationListView extends Component {
     pressRow(rowData) {
         console.log(rowData);
 
-        // let newArray = ['Vancouver', 'Calgary', 'Edmonton', 'Victoria', 'Saskatoon'];
-        //
-        // let newDataSource = this.ds.cloneWithRows(newArray);
-        // this.setState({
-        //  dataSource: newDataSource
-        // });
+        // move to detail view and load weather data
+
     }
 
     renderRow(rowData) {
@@ -100,8 +96,8 @@ const styles = StyleSheet.create({
   row: {
       flex: 1,
       flexDirection: 'row',
-      padding: 20,
-      alignItems: 'flex-start',
+      padding: 25,
+      alignItems: 'center',
       backgroundColor: '#81B0A0',
       borderColor: '#D04734',
       borderBottomWidth: 1,
