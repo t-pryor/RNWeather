@@ -1,14 +1,13 @@
 'use strict';
 
 import React, {Component} from 'react';
-import { AppRegistry, ListView, Text, View, TouchableHighlight, StyleSheet, Image } from "react-native";
-
+import { AppRegistry, ListView, Text, View, TouchableHighlight, StyleSheet, Image, NavigatorIOS } from "react-native";
 
 class LocationListView extends Component {
     // Initialize the hardcoded data
     constructor(props) {
         super(props);
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== rs});
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             dataSource: ds.cloneWithRows(props.data)
         }
@@ -18,46 +17,16 @@ class LocationListView extends Component {
         console.log(rowData);
 
         // move to detail view and load weather data
-
     }
+
+
 
     renderRow(rowData) {
         let photoString;
         console.log(photoString);
         console.log(typeof photoString);
 
-        switch (rowData) {
-            case 'Victoria':
-                photoString = require('./img/Victoria.png');
-                break;
-            case 'Vancouver':
-                photoString = require('./img/Vancouver.png');
-                break;
-            case 'Calgary':
-                photoString = require('./img/Calgary.png');
-                break;
-            case 'Edmonton':
-                photoString = require('./img/Edmonton.png');
-                break;
-            case 'Saskatoon':
-                photoString = require('./img/Saskatoon.png');
-                break;
-            case 'Toronto':
-                photoString = require('./img/Toronto.png');
-                break;
-            case 'Ottawa':
-                photoString = require('./img/Ottawa.png');
-                break;
-            case 'Montreal':
-                photoString = require('./img/Montreal.png');
-                break;
-            case 'Quebec City':
-                photoString = require('./img/QuebecCity.png');
-                break;
-            case "St. John's":
-                photoString = require('./img/StJohns.png');
-                break;
-        }
+        photoString = this._getCity(rowData);
 
         return (
             <TouchableHighlight
@@ -88,6 +57,42 @@ class LocationListView extends Component {
                 />
             </View>
         )
+    }
+
+    _getCity(cityname) {
+        switch(cityname) {
+            case 'Victoria':
+                return require('./img/Victoria.png');
+                break;
+            case 'Vancouver':
+                return require('./img/Vancouver.png');
+                break;
+            case 'Calgary':
+                return require('./img/Calgary.png');
+                break;
+            case 'Edmonton':
+                return require('./img/Edmonton.png');
+                break;
+            case 'Saskatoon':
+                return require('./img/Saskatoon.png');
+                break;
+            case 'Toronto':
+                return require('./img/Toronto.png');
+                break;
+            case 'Ottawa':
+                return require('./img/Ottawa.png');
+                break;
+            case 'Montreal':
+                return require('./img/Montreal.png');
+                break;
+            case 'Quebec City':
+                return require('./img/QuebecCity.png');
+                break;
+            case "St. John's":
+                return require('./img/StJohns.png');
+                break;
+        }
+
     }
 
 }
