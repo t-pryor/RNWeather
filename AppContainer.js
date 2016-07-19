@@ -12,8 +12,29 @@ class AppContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.westLocations = [ 'Victoria', 'Vancouver', 'Calgary', 'Edmonton', 'Saskatoon'];
+        this.westLocations = [ 'Victoria', 'Vancouver', 'Calgary', 'Edmonton', 'Saskatoon']; // could make each of these objects
         this.eastLocations = ['Toronto', 'Ottawa', 'Montreal', 'Quebec City', "St. John's"];
+
+
+
+        // this.westLocations2 = [
+        //     this._createCityObject('Victoria'),
+        //     this._createCityObject('Vancouver'),
+        //     this._createCityObject('Calgary'),
+        //     this._createCityObject('Edmonton'),
+        //     this._createCityObject('Saskatoon')
+        // ]
+        // console.log(this.westLocations2);
+        //
+        // this.eastLocations2 = [
+        //     this._createCityObject('Toronto'),
+        //     this._createCityObject('Ottawa'),
+        //     this._createCityObject('Montreal'),
+        //     this._createCityObject('Quebec City'),
+        //     this._createCityObject("St. John's")
+        // ]
+        //
+        // console.log(this.eastLocations2);
 
         this.state = {
             selectedTab: 'west'
@@ -32,7 +53,17 @@ class AppContainer extends Component {
                     onPress={()=> this.setState({selectedTab: 'west'})}
                 >
 
-                    <LocationListView data = {this.westLocations}/>
+                <NavigatorIOS
+                    style ={{
+                        flex:1
+                    }}
+                    initialRoute={{
+                        component: LocationListView,
+                        passProps: { data: this.westLocations},
+                        title: 'Western Canada',
+                    }}
+                />
+
                 </TabBarIOS.Item>
 
             <TabBarIOS.Item
@@ -41,10 +72,33 @@ class AppContainer extends Component {
                 icon={require('./img/east-icon-smaller.png')}
                 onPress={()=> this.setState({selectedTab: 'east'})}
             >
-                <LocationListView data = {this.eastLocations}/>
+
+            <NavigatorIOS
+                style ={{
+                    flex:1
+                }}
+                initialRoute={{
+                    component: LocationListView,
+                    passProps: { data: this.eastLocations},
+                    title: 'Eastern Canada',
+                }}
+            />
+
+
+
+
             </TabBarIOS.Item>
         </TabBarIOS>
         )
+    }
+
+    _createCityObject(cityname) {
+        let imageLocationString = './img/' + cityname + '.png'
+        console.log(imageLocationString);
+        return {
+            name: cityname,
+            imageLocation: require(imageLocationString) // can't require with a variable
+        }
     }
 }
 

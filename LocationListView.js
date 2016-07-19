@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import { AppRegistry, ListView, Text, View, TouchableHighlight, StyleSheet, Image, NavigatorIOS } from "react-native";
 
+var WeatherDetailData = require('./WeatherDetailData');
+
 class LocationListView extends Component {
     // Initialize the hardcoded data
     constructor(props) {
@@ -15,18 +17,23 @@ class LocationListView extends Component {
 
     pressRow(rowData) {
         console.log(rowData);
+        console.log(this.props.navigator);
+        this.props.navigator.push({
+            title: 'Push Event',
+            component: WeatherDetailData,
+            passProps: {
+                pushEvent: rowData
+            }
+        });
 
         // move to detail view and load weather data
     }
 
-
-
     renderRow(rowData) {
-        let photoString;
-        console.log(photoString);
-        console.log(typeof photoString);
+        // let photoString = require(rowData.imageLocation);
+        // console.log(photoString);
 
-        photoString = this._getCity(rowData);
+        let photoString = this._getCity(rowData);
 
         return (
             <TouchableHighlight
