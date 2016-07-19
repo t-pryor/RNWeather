@@ -19,7 +19,7 @@ class LocationListView extends Component {
         console.log(rowData);
         console.log(this.props.navigator);
         this.props.navigator.push({
-            title: 'Push Event',
+            title: rowData,
             component: WeatherDetailData,
             passProps: {
                 pushEvent: rowData

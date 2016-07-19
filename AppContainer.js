@@ -61,6 +61,7 @@ class AppContainer extends Component {
                         component: LocationListView,
                         passProps: { data: this.westLocations},
                         title: 'Western Canada',
+                        backButtonTitle: 'Cities'
                     }}
                 />
 
@@ -81,6 +82,7 @@ class AppContainer extends Component {
                     component: LocationListView,
                     passProps: { data: this.eastLocations},
                     title: 'Eastern Canada',
+                    backButtonTitle: 'Cities'
                 }}
             />
 
