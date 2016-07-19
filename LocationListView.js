@@ -28,19 +28,25 @@ class LocationListView extends Component {
 
     // does renderSeperator makes sense?
     renderRow(rowData) {
-        var photoString = require('./img/Victoria.png')
+        let photoString;
         console.log(photoString);
         console.log(typeof photoString);
 
         switch (rowData) {
             case 'Victoria':
-                var photoString = require('./img/Victoria.png');
+                photoString = require('./img/Victoria.png');
                 break;
             case 'Vancouver':
-                var photoString = require('./img/east-icon-smaller.png')
+                photoString = require('./img/Vancouver.png');
                 break;
-            default:
-                var photoString = require('./img/Victoria.png');
+            case 'Calgary':
+                photoString = require('./img/Calgary.png');
+                break;
+            case 'Edmonton':
+                photoString = require('./img/Edmonton.png');
+                break;
+            case 'Saskatoon':
+                photoString = require('./img/Saskatoon.png');
                 break;
         }
 
@@ -50,22 +56,18 @@ class LocationListView extends Component {
                 underlayColor='#ddd'
             >
             <View style={styles.row}>
-            <Text style={{fontSize: 45}}> {rowData} </Text>
             <Image
                 source={photoString}
-                style={{
-                    height: 50,
-                    width: 100,
-                    borderRadius: 10
-                }}
+                style={styles.image}
             />
+
+            <Text style={{fontSize: 45}}> {rowData} </Text>
             </View>
             </TouchableHighlight>
         );
 
 
     }
-
 
     // ListView requires two props: dataSource and renderRow
     render() {
@@ -86,13 +88,16 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       padding: 20,
-      alignItems: 'center',
+      alignItems: 'flex-start',
       backgroundColor: '#81B0A0',
       borderColor: '#D04734',
-      borderBottomWidth: 1
+      borderBottomWidth: 1,
+      justifyContent: 'flex-start'
   },
   image: {
-      fontSize: 45,
+      height: 50,
+      width: 100,
+      borderRadius: 10,
   },
   welcome: {
     fontSize: 20,
