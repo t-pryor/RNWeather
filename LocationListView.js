@@ -25,8 +25,6 @@ class LocationListView extends Component {
         // });
     }
 
-
-    // does renderSeperator makes sense?
     renderRow(rowData) {
         let photoString;
         console.log(photoString);
@@ -47,6 +45,21 @@ class LocationListView extends Component {
                 break;
             case 'Saskatoon':
                 photoString = require('./img/Saskatoon.png');
+                break;
+            case 'Toronto':
+                photoString = require('./img/Toronto.png');
+                break;
+            case 'Ottawa':
+                photoString = require('./img/Ottawa.png');
+                break;
+            case 'Montreal':
+                photoString = require('./img/Montreal.png');
+                break;
+            case 'Quebec City':
+                photoString = require('./img/QuebecCity.png');
+                break;
+            case "St. John's":
+                photoString = require('./img/StJohns.png');
                 break;
         }
 
@@ -95,9 +108,9 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start'
   },
   image: {
-      height: 50,
-      width: 100,
-      borderRadius: 10,
+      height: 73,
+      width: 110,
+      borderRadius: 5,
   },
   welcome: {
     fontSize: 20,
