@@ -44,7 +44,7 @@ class AppContainer extends Component {
     render() {
         return (
             <TabBarIOS
-                barTintColor='#F5FCFF'
+                barTintColor='#FCFFF5'
             >
                 <TabBarIOS.Item
                     title="West"
@@ -54,8 +54,9 @@ class AppContainer extends Component {
                 >
 
                 <NavigatorIOS
+                    barTintColor='#FCFFF5'
                     style ={{
-                        flex:1
+                        flex:1,
                     }}
                     initialRoute={{
                         component: LocationListView,
