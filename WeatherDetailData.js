@@ -23,7 +23,7 @@ class WeatherDetailData extends Component {
             'Ottawa': 'https://weather.gc.ca/city/pages/on-118_metric_e.html',
             'Montreal': 'https://weather.gc.ca/city/pages/qc-147_metric_e.html',
             'Quebec City': 'https://weather.gc.ca/city/pages/qc-133_metric_e.html',
-            "St John's": 'https://weather.gc.ca/city/pages/nl-24_metric_e.html'
+            "St. John's": 'https://weather.gc.ca/city/pages/nl-24_metric_e.html'
         }
     }
 
